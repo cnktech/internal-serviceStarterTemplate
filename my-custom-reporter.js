@@ -2,7 +2,7 @@ const aws = require('aws-sdk')
 const fs = require('fs')
 aws.config.update({ region: 'us-east-1' })
 
-const SERVICE_NAME = 'StressTracker Service'
+const SERVICE_NAME = process.env.SERVICE_NAME
 
 const getFile = () => {
     const x = fs.readFileSync('./coverage/coverage-summary.json')
@@ -15,7 +15,7 @@ const getFile = () => {
     })
 
     const params = {
-        TableName: `origamai-internal-testcoverage`,
+        TableName: process.env.SERVICE_NAME + `-testcoverage`,
         Item: {
             PK: 'testcoverage',
             SK:
@@ -50,9 +50,7 @@ class MyCustomReporter {
         const x = getFile()
     }
 
-    onTestResult(test, testResult) {
-        // console.log('*** ', testResult)
-    }
+    onTestResult(test, testResult) {}
 }
 
 module.exports = MyCustomReporter
