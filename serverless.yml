@@ -7,7 +7,6 @@ plugins:
     - serverless-offline
     - serverless-pseudo-parameters
     - serverless-plugin-tracing
-    - serverless-dynamodb-local
 
 provider:
     name: aws
