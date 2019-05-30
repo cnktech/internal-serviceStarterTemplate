@@ -1,5 +1,11 @@
 # Starter Service
 
+To create this service locally on your machine:
+
+```
+serverless create --template-url https://github.com/dodgeblaster/serviceStarterTemplate
+```
+
 ### Overview
 
 There are 5 parts to this service:
